@@ -16,7 +16,7 @@
     </c-radio-group>
   </c-box></c-box>
   <masonry v-if="cards !== null" v-chakra px="6" h="100%" :cols="{default: 5, 1500:4, 1000: 3, 700: 2}" :gutter="{default: '15px', 700: '10px'}" >
-    <LazyItemCard v-for="card in cards" :title="card.title" :tags="card.tags" :image="card.media[0]" :key="card.id" />
+    <LazyItemCard v-for="card in cards" :title="card.title" :tags="card.tags" :image="card.media[0]" :id="card.id" :key="card.id" />
   </masonry>
   <c-box w="100%" display="flex" v-if="cards == null"><p v-chakra alignSelf="center" justifySelf="center" mx="auto">Collections looks a little empty :/</p></c-box>
   <nuxt-link to="/"><c-box pos="fixed" zIndex="2" bottom="5" right="5" bg="orange.300" w="70px" h="70px" rounded="50%">

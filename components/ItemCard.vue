@@ -1,5 +1,5 @@
 <template>
-<nuxt-link to="/main">
+<nuxt-link :to="'/item/' + id">
   <c-box maxW="360px" minW="160px" minH="270px" maxH="800px" 
     :style="imageBg" 
     bgSize="cover" mt="4"
@@ -75,6 +75,9 @@ export default {
         CHeading
     },
     props: {
+      id: {
+        type: Number
+      },
       title: {
         default: "",
         type: String
