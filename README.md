@@ -1,4 +1,6 @@
-# test_7
+# ARC
+
+An archival resource center for museums. 
 
 ## Build Setup
 
