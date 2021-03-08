@@ -55,9 +55,7 @@ export default {
   asyncData() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(
-          dummyDataAPI.getCards(cardNum)
-        )
+        resolve({ cards: dummyDataAPI.getCards(cardNum)})
       }, 1500)
     })
   }
