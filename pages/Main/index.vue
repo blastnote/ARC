@@ -1,5 +1,5 @@
 <template>
-<div pos="relative">
+<div v-chakra pos="relative">
   <c-box style="background-image: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.65) 100%), url('https://images.unsplash.com/photo-1610813328396-9849ca0d87f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80')" 
     w="100%" h="75vh" bg="cyan.900" roundedBottom="24px" bgPos="center" bgRepeat="no-repeat" bgSize="cover" display="flex">
     <c-box display="flex" rounded="25px" bg="white" px="4" alignSelf="center" justifySelf="center" mx="auto" w="50%">
@@ -15,10 +15,10 @@
       <c-radio value="3">A - Z</c-radio>
     </c-radio-group>
   </c-box></c-box>
-  <masonry v-if="cards !== null" v-chakra px="6" h="100%" :cols="{default: 5, 1500:4, 1000: 3, 700: 2}" :gutter="{default: '15px', 700: '10px'}" >
-    <LazyItemCard v-for="card in cards" :title="card.title" :tags="card.tags" :image="card.media[0]" :id="card.id" :key="card.id" />
+  <masonry v-if="items !== null" v-chakra px="6" h="100%" :cols="{default: 5, 1500:4, 1000: 3, 700: 2}" :gutter="{default: '15px', 700: '10px'}" >
+    <LazyItemCard v-for="item in items" :title="item.title" :tags="item.tags" :image="item.media[0]" :id="item.id" :key="item.id" />
   </masonry>
-  <c-box w="100%" display="flex" v-if="cards == null"><p v-chakra alignSelf="center" justifySelf="center" mx="auto">Collections looks a little empty :/</p></c-box>
+  <c-box w="100%" display="flex" v-if="items == null"><p v-chakra alignSelf="center" justifySelf="center" mx="auto">Collections looks a little empty :/</p></c-box>
   <nuxt-link to="/"><c-box pos="fixed" zIndex="2" bottom="5" right="5" bg="orange.300" w="70px" h="70px" rounded="50%">
     <c-icon m="10px" name="add" size="50px" color="gray.50" />
   </c-box></nuxt-link>
@@ -35,7 +35,7 @@ import * as dummyDataAPI from '~/assets/js/dummyDataAPI.js'
 
 Vue.use(VueMasonry);
 
-var cardNum = 15
+var itemsNum = 15
 
 export default {
   components: {
@@ -49,13 +49,13 @@ export default {
   data() {
     return {
       selectedFilter: '1',
-      cards: null
+      items: null
     }
   },
   asyncData() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve({ cards: dummyDataAPI.getCards(cardNum)})
+        resolve({ items: dummyDataAPI.getItems(itemsNum)})
       }, 1500)
     })
   }

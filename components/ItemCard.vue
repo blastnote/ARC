@@ -20,7 +20,7 @@
     </c-box>
 
     <!-- Bottom tags positioning -->
-    <c-box pos="absolute" bottom="-10px" right="25px" v-if="tags !== null">
+    <c-box pos="absolute" bottom="-10px" right="20px" v-if="tags !== null">
       <!-- Displayed tags -->
       <c-box style="float: left;" ml="2" px="3" 
         rounded="10px" textAlign="center" 
@@ -55,24 +55,12 @@
 </template>
 
 <script>
-import {
-  CBox,
-  CImage,
-  CButton,
-  CIconButton,
-  CFlex,
-  CHeading
-} from '@chakra-ui/vue'
+import { CBox } from '@chakra-ui/vue'
 
 export default {
     name: `ItemCard`,
     components: {
-        CBox,
-        CImage,
-        CButton,
-        CIconButton,
-        CFlex,
-        CHeading
+        CBox
     },
     props: {
       id: {
