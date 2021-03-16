@@ -1,11 +1,13 @@
 <template>
 <div v-chakra pos="relative">
+  <Menu v-chakra zIndex="2" pos="fixed" top="8" left="8" />
   <c-box style="background-image: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.65) 100%), url('https://images.unsplash.com/photo-1610813328396-9849ca0d87f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80')" 
     w="100%" h="75vh" bg="cyan.900" roundedBottom="24px" bgPos="center" bgRepeat="no-repeat" bgSize="cover" display="flex">
     <c-box display="flex" rounded="25px" bg="white" px="4" alignSelf="center" justifySelf="center" mx="auto" w="50%">
       <search-icon v-chakra alignSelf="center" size="30"></search-icon>
       <c-input ml="1" variant="unstyled" />
     </c-box>
+
   </c-box>
   
   <c-box display="flex"><c-box ml="6" mt="3" py="2" px="4" rounded="15px" border="3px solid" borderColor="black">
@@ -29,6 +31,7 @@
 import { CBox, CGrid, CInput } from '@chakra-ui/vue';
 import VueMasonry from '@/node_modules/vue-masonry-css/dist/vue-masonry'
 import ItemCard from '@/components/ItemCard'
+import Menu from '@/components/Menu'
 import { SearchIcon } from '@/node_modules/vue-feather-icons'
 import Vue from 'vue'
 import * as dummyDataAPI from '~/assets/js/dummyDataAPI.js'
@@ -44,7 +47,8 @@ export default {
     CInput,
     VueMasonry,
     ItemCard,
-    SearchIcon
+    SearchIcon,
+    Menu
   },
   data() {
     return {
